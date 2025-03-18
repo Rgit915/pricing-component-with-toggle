@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+@import "tailwindcss";
+
+
+@theme {
+  --font-montserrat: "Montserrat", sans-serif;
+  --color-primary: "linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%))";
+  --color-neutral-very-light-grayish-blue: hsl(240, 78%, 98%);
+  --color-neutral-grayish-blue: hsl(234, 14%, 74%);
+  --color-neutral-dark-grayish-blue: hsl(232, 13%, 33%);
+  --color-neutral-slate-grayish-blue: hsla(232, 13%, 49%, 1);
+
+}
+
+@layer base {
+  body {
+    @apply text-base font-normal font-montserrat bg-neutral-very-light-grayish-blue text-neutral-dark-grayish-blue ;
+  }
+  main{
+    @apply relative
+  }
+  main::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    top: -6%;
+    right: -47%;
+    width: 100%;
+    background-image: url(./assets/images/bg-top.svg);
+    background-repeat: no-repeat;
+  }
+  label {
+    @apply text-[15px] font-bold opacity-50 leading-7;
+  }
+  button{
+    @apply text-[13px] font-bold text-white uppercase text-center tracking-[1.39px] bg-neutral-grayish-blue px-6 py-2 w-full rounded-md ;
+  }
+}
+
+@layer components {
+  .card {
+    @apply relative w-full max-w-[300px] mx-auto bg-white rounded-lg shadow-md p-6 flex flex-col items-center gap-6 justify-center text-center text-neutral-slate-grayish-blue;
+  }
+
+  .card p {
+    @apply relative pb-4 w-full flex justify-center;
+  }
+
+  .card p::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    height: 1px;
+    background-color: var(--color-neutral-slate-grayish-blue);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 25%;
+  }
+  .professional p::after {
+    @apply bg-primary; 
+  }
+
+  /* Remove line from the last paragraph */
+  .card p:last-child::after {
+    display: none;
+  }
+}
