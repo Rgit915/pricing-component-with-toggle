@@ -12,7 +12,7 @@ const App = () => {
           Our Pricing
         </h1>
 
-        <div className="toggle-container flex items-center gap-4">
+        <div className="toggle-container flex items-center gap-4 mb-12">
           <span className="text-[15px] font-bold opacity-50 leading-7">
             Annually
           </span>
