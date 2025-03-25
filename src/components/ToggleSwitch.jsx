@@ -1,7 +1,15 @@
 const ToggleSwitch = ({ isAnnually, setIsAnnually }) => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === "Space") {
+      setIsAnnually(!isAnnually);
+    }
+  };
+
   return (
     <div className="toggle-container flex items-center gap-4 mb-12">
-      <span className="text-[15px] font-bold opacity-50 leading-7">Annually</span>
+      <span className="text-[15px] font-bold opacity-50 leading-7">
+        Annually
+      </span>
       <input
         type="checkbox"
         id="toggle"
@@ -17,9 +25,15 @@ const ToggleSwitch = ({ isAnnually, setIsAnnually }) => {
           className={`absolute w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 ${
             isAnnually ? "translate-x-1" : "translate-x-7"
           }`}
+          tabIndex="0" // Make the label focusable
+          role="switch" // Define the role as a switch for accessibility
+          aria-checked={isAnnually} // Indicate the current state of the toggle
+          onKeyDown={handleKeyDown} // Allow toggling with the keyboard
         />
       </label>
-      <span className="text-[15px] font-bold opacity-50 leading-7">Monthly</span>
+      <span className="text-[15px] font-bold opacity-50 leading-7">
+        Monthly
+      </span>
     </div>
   );
 };
