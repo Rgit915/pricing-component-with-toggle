@@ -1,6 +1,6 @@
 const PricingCard = ({ plan, isAnnually }) => {
   const isProfessional = plan.name === "Professional";
-  const borderColor = isProfessional ? "white" : "neutral-slate-grayish-blue";
+  const borderColor = isProfessional ? "bg-white" : "bg-neutral-slate-grayish-blue";
   const textColor = isProfessional
     ? "text-white"
     : "text-neutral-slate-grayish-blue";
@@ -10,7 +10,7 @@ const PricingCard = ({ plan, isAnnually }) => {
 
   const renderDivider = () => (
     <span
-      className={`absolute bottom-0 left-1/2 w-4/5 h-px bg-${borderColor} opacity-25 transform -translate-x-1/2`}
+      className={`absolute bottom-0 left-1/2 w-full h-px ${borderColor} opacity-25 transform -translate-x-1/2`}
     />
   );
 
@@ -42,7 +42,7 @@ const PricingCard = ({ plan, isAnnually }) => {
 
       {/** Button with optimized styles **/}
       <button
-        className={`mt-4 py-2 px-4 rounded-md font-bold transition-all border ${
+        className={`mt-4 py-2 px-4 w-full rounded-md font-bold transition-all border ${
           isProfessional
             ? "bg-white text-primary-vibrant-blue border-transparent hover:bg-transparent hover:text-white hover:border-white"
             : "bg-gradient-to-r from-primary-moderate-blue to-primary-vibrant-blue text-white border-transparent hover:bg-none hover:bg-transparent hover:text-primary-vibrant-blue hover:border-primary-vibrant-blue"
