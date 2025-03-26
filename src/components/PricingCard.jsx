@@ -1,6 +1,8 @@
 const PricingCard = ({ plan, isAnnually }) => {
   const isProfessional = plan.name === "Professional";
-  const borderColor = isProfessional ? "bg-white" : "bg-neutral-slate-grayish-blue";
+  const borderColor = isProfessional
+    ? "bg-white"
+    : "bg-neutral-slate-grayish-blue";
   const textColor = isProfessional
     ? "text-white"
     : "text-neutral-slate-grayish-blue";
@@ -16,9 +18,11 @@ const PricingCard = ({ plan, isAnnually }) => {
 
   return (
     <div
-      className={`card p-6 rounded-lg shadow-md text-center w-full md:w-1/3 transition-all duration-300 ${bgColor} ${textColor}`}
+      className={`card md:w-1/3 transition-all duration-300 ${
+        isProfessional ? "md:scale-110 md:z-10" : "md:scale-100"
+      }  ${bgColor} ${textColor}`}
     >
-      <h2 className="plan-name text-lg relative pb-4 w-full flex justify-center">
+      <h2 className={`${plan.name} text-lg relative ${ isProfessional ? "pb-2": "pb-4"} w-full flex justify-center text-center`}>
         {plan.name}
       </h2>
 
@@ -42,10 +46,10 @@ const PricingCard = ({ plan, isAnnually }) => {
 
       {/** Button with optimized styles **/}
       <button
-        className={`mt-4 py-2 px-4 w-full rounded-md font-bold transition-all border ${
+        className={`py-2 px-4 w-full rounded-md font-bold transition-all border ${
           isProfessional
-            ? "bg-white text-primary-vibrant-blue border-transparent hover:bg-transparent hover:text-white hover:border-white"
-            : "bg-gradient-to-r from-primary-moderate-blue to-primary-vibrant-blue text-white border-transparent hover:bg-none hover:bg-transparent hover:text-primary-vibrant-blue hover:border-primary-vibrant-blue"
+            ? " bg-white text-primary-vibrant-blue border-transparent hover:bg-transparent hover:text-white hover:border-white"
+            : "mt-6 bg-gradient-to-r from-primary-moderate-blue to-primary-vibrant-blue text-white border-transparent hover:bg-none hover:bg-transparent hover:text-primary-vibrant-blue hover:border-primary-vibrant-blue"
         }`}
       >
         Learn More

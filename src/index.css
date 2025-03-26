@@ -65,6 +65,6 @@
 
 @layer components {
   .card {
-    @apply relative max-w-full w-[350px] mx-auto bg-white rounded-lg shadow-md p-6 flex flex-col items-center gap-6 justify-center text-center text-neutral-slate-grayish-blue;
+    @apply relative max-w-full w-[350px] mx-auto bg-white rounded-lg shadow-md p-6 flex flex-col items-center gap-6 justify-center text-center;
   }
 }
